@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  postgis:
+    image: postgis/postgis:15-3.3  # PostgreSQL with PostGIS
+    platform: linux/amd64
+    container_name: postgis-container
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgis_data:
