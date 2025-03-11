@@ -35,7 +35,7 @@ services:
       - ./clickhouse-setup/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "8123:8123"
-      - "9000:9000"
+      - "9090:9000"
     networks:
       data-station-network:
         ipv4_address: 172.20.14.90
