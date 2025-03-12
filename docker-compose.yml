@@ -54,7 +54,7 @@ services:
 volumes:
   warehouse_postgis:
   warehouse_clickhouse:
-  warehouse_clickhouse-logs:
+  warehouse_clickhouse_logs:
 
 
 networks:
