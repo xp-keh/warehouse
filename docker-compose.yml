@@ -52,7 +52,7 @@ services:
       - SYS_PTRACE
 
 volumes:
-  postgis_data:
+  warehouse_postgis:
   warehouse_clickhouse:
   warehouse_clickhouse-logs:
 
