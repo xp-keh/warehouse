@@ -53,8 +53,8 @@ services:
 
 volumes:
   postgis_data:
-  clickhouse-storage:
-  clickhouse-logs:
+  warehouse_clickhouse:
+  warehouse_clickhouse-logs:
 
 
 networks:
