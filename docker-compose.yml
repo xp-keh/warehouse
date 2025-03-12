@@ -12,7 +12,7 @@ services:
       - "5432:5432"
     volumes:
       - warehouse_postgis:/var/lib/postgresql/data
-      - ./postgis-setup/1_init.sql:/docker-entrypoint-initdb.d/1_init.sql
+      - ./postgis-setup/pg_init.sql:/docker-entrypoint-initdb.d/pg_init.sql
     networks:
       data-station-network:
         ipv4_address: 172.20.14.89
@@ -32,7 +32,7 @@ services:
     volumes:
       - warehouse_clickhouse:/var/lib/clickhouse-storage
       - warehouse_clickhouse_logs:/var/log/clickhouse-server
-      - ./clickhouse-setup/1_init.sql:/docker-entrypoint-initdb.d/1_init.sql
+      - ./clickhouse-setup/ch_init.sql:/docker-entrypoint-initdb.d/ch_init.sql
     ports:
       - "9091:8123"
       - "9092:9000"
