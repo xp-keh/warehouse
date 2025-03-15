@@ -44,7 +44,7 @@ services:
       interval: 5s
       timeout: 3s
       retries: 5
-      entrypoint: [ "/bin/bash", "/docker-entrypoint-initdb.d/init.sh" ]
+    entrypoint: [ "/bin/bash", "/docker-entrypoint-initdb.d/init.sh" ]
     user: root
     cap_add:
       - SYS_NICE
