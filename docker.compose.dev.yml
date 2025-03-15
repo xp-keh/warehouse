@@ -16,7 +16,7 @@ services:
       - "5432:5432"
     volumes:
       - postgis_data:/var/lib/postgresql/data
-      - ./postgis-setup/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgis-setup/migrations:/docker-entrypoint-initdb.d
     networks:
       - wh-net
     healthcheck:
@@ -37,7 +37,7 @@ services:
     volumes:
       - clickhouse-storage:/var/lib/clickhouse
       - clickhouse-logs:/var/log/clickhouse-server
-      - ./clickhouse-setup/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./clickhouse-setup/migrations:/docker-entrypoint-initdb.d
     ports:
       - "8123:8123"
       - "9000:9000"
