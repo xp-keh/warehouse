@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - warehouse_postgis:/var/lib/postgresql/data
+      - db_postgis:/var/lib/postgresql/data
       - ./postgis-setup/pg_init.sql:/docker-entrypoint-initdb.d/pg_init.sql
     networks:
       data-station-network:
@@ -30,8 +30,8 @@ services:
         soft: 262144
         hard: 262144
     volumes:
-      - warehouse_clickhouse:/var/lib/clickhouse-storage
-      - warehouse_clickhouse_logs:/var/log/clickhouse-server
+      - db_clickhouse:/var/lib/clickhouse-storage
+      - db_clickhouse_logs:/var/log/clickhouse-server
       - ./clickhouse-setup/ch_init.sql:/docker-entrypoint-initdb.d/ch_init.sql
     ports:
       - "9091:8123"
@@ -52,9 +52,9 @@ services:
       - SYS_PTRACE
 
 volumes:
-  warehouse_postgis:
-  warehouse_clickhouse:
-  warehouse_clickhouse_logs:
+  db_postgis:
+  db_clickhouse:
+  db_clickhouse_logs:
 
 
 networks:
