@@ -1,4 +1,7 @@
 -- postgis-setup/init.sql
+\c spatialdb;
+
+CREATE EXTENSION IF NOT EXISTS postgis;
 
 CREATE TABLE data_catalog (
     catalog_id      SERIAL,
