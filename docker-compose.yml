@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - db_postgis:/var/lib/postgresql/data
+      - warehouse_db_postgis:/var/lib/postgresql/data
       - ./postgis-setup/migrations:/docker-entrypoint-initdb.d
     networks:
       nginx-manager_customnetwork:
@@ -30,8 +30,8 @@ services:
         soft: 262144
         hard: 262144
     volumes:
-      - db_clickhouse:/var/lib/clickhouse-storage
-      - db_clickhouse_logs:/var/log/clickhouse-server
+      - warehouse_db_clickhouse:/var/lib/clickhouse-storage
+      - warehouse_db_clickhouse_logs:/var/log/clickhouse-server
       - ./clickhouse-setup/migrations:/docker-entrypoint-initdb.d
     ports:
       - "9091:8123"
